@@ -91,6 +91,27 @@
       font-style: italic;
       color: #333;
     }
+    /* Кнопка "Наверх" */
+#toTop {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #1a4cff;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    display: none; /* скрыта по умолчанию */
+    transition: opacity 0.3s ease;
+}
+
+#toTop:hover {
+    background-color: #0039e6;
+}
+
 </style>
 
 </head>
@@ -264,6 +285,22 @@
 ИИ не пойдёт на экзамен вместо тебя. Он может помочь подготовиться, но учиться всё равно придётся тебе.
 
 Если относиться к ИИ не как к волшебной кнопке, а как к инструменту, который требует нормального обращения, он действительно может стать сильным помощником. Если же продолжать бросать ему «реши это» и ждать чуда — страдать будете оба.</p>
+<div id="toTop">Наверх ↑</div>
+  <script>
+    const toTop = document.getElementById("toTop");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) {
+            toTop.style.display = "block";
+        } else {
+            toTop.style.display = "none";
+        }
+    });
+
+    toTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
 
 </body>
 </html>
@@ -298,5 +335,6 @@
         margin: 8px 0;
     }
 }
+
 
 
